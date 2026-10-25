@@ -12,6 +12,8 @@
 		81907C22308CA73200226988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81907C12308CA73200226988 /* Assets.xcassets */; };
 		81907C23308CA73200226988 /* CinevoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81907C13308CA73200226988 /* CinevoTests.swift */; };
 		81907C24308CA73200226988 /* CinevoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81907C14308CA73200226988 /* CinevoUITests.swift */; };
+		81E604E4308E69610055D7E7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E604E3308E69610055D7E7 /* RootView.swift */; };
+		81E604E6308E69700055D7E7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E604E5308E69700055D7E7 /* SplashView.swift */; };
 		C1A0DE01308E0000000000B1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A1 /* HTTPMethod.swift */; };
 		C1A0DE01308E0000000000B2 /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A2 /* HTTPBody.swift */; };
 		C1A0DE01308E0000000000B3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A3 /* NetworkError.swift */; };
@@ -49,6 +51,8 @@
 		81907C12308CA73200226988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81907C13308CA73200226988 /* CinevoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinevoTests.swift; sourceTree = "<group>"; };
 		81907C14308CA73200226988 /* CinevoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinevoUITests.swift; sourceTree = "<group>"; };
+		81E604E3308E69610055D7E7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		81E604E5308E69700055D7E7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		845C0AF6308DEAB800370FED /* 01-Network-Layer.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-Network-Layer.md"; sourceTree = "<group>"; };
 		C1A0DE01308E0000000000A1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C1A0DE01308E0000000000A2 /* HTTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
@@ -112,8 +116,10 @@
 			children = (
 				81907C10308CA73200226988 /* CinevoApp.swift */,
 				81907C11308CA73200226988 /* ContentView.swift */,
+				81E604E3308E69610055D7E7 /* RootView.swift */,
 				C1A0DE01308E0000000000C1 /* Networking */,
 				81907C12308CA73200226988 /* Assets.xcassets */,
+				81E604E5308E69700055D7E7 /* SplashView.swift */,
 			);
 			path = "Cinevo-iOS";
 			sourceTree = "<group>";
@@ -308,7 +314,9 @@
 				C1A0DE01308E0000000000B1 /* HTTPMethod.swift in Sources */,
 				C1A0DE01308E0000000000B2 /* HTTPBody.swift in Sources */,
 				C1A0DE01308E0000000000B3 /* NetworkError.swift in Sources */,
+				81E604E4308E69610055D7E7 /* RootView.swift in Sources */,
 				C1A0DE01308E0000000000B4 /* Endpoint.swift in Sources */,
+				81E604E6308E69700055D7E7 /* SplashView.swift in Sources */,
 				C1A0DE01308E0000000000B5 /* NetworkClient.swift in Sources */,
 				C1A0DE01308E0000000000B6 /* URLSessionNetworkClient.swift in Sources */,
 			);
@@ -470,16 +478,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6L3T8BHYTU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cinevo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = LaunchBackground;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -487,9 +499,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buildmyapp.Cinevo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -498,16 +518,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6L3T8BHYTU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cinevo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = LaunchBackground;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,9 +539,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buildmyapp.Cinevo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -529,11 +561,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6L3T8BHYTU;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buildmyapp.Cinevo-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cinevo-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cinevo-iOS";
@@ -548,11 +583,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6L3T8BHYTU;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buildmyapp.Cinevo-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cinevo-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cinevo-iOS";
@@ -566,7 +604,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6L3T8BHYTU;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buildmyapp.Cinevo-iOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
