@@ -12,6 +12,8 @@
 		81907C22308CA73200226988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81907C12308CA73200226988 /* Assets.xcassets */; };
 		81907C23308CA73200226988 /* CinevoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81907C13308CA73200226988 /* CinevoTests.swift */; };
 		81907C24308CA73200226988 /* CinevoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81907C14308CA73200226988 /* CinevoUITests.swift */; };
+		81E604E4308E69610055D7E7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E604E3308E69610055D7E7 /* RootView.swift */; };
+		81E604E6308E69700055D7E7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E604E5308E69700055D7E7 /* SplashView.swift */; };
 		C1A0DE01308E0000000000B1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A1 /* HTTPMethod.swift */; };
 		C1A0DE01308E0000000000B2 /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A2 /* HTTPBody.swift */; };
 		C1A0DE01308E0000000000B3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A3 /* NetworkError.swift */; };
@@ -49,6 +51,8 @@
 		81907C12308CA73200226988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81907C13308CA73200226988 /* CinevoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinevoTests.swift; sourceTree = "<group>"; };
 		81907C14308CA73200226988 /* CinevoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinevoUITests.swift; sourceTree = "<group>"; };
+		81E604E3308E69610055D7E7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		81E604E5308E69700055D7E7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		845C0AF6308DEAB800370FED /* 01-Network-Layer.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-Network-Layer.md"; sourceTree = "<group>"; };
 		C1A0DE01308E0000000000A1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C1A0DE01308E0000000000A2 /* HTTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
@@ -112,8 +116,10 @@
 			children = (
 				81907C10308CA73200226988 /* CinevoApp.swift */,
 				81907C11308CA73200226988 /* ContentView.swift */,
+				81E604E3308E69610055D7E7 /* RootView.swift */,
 				C1A0DE01308E0000000000C1 /* Networking */,
 				81907C12308CA73200226988 /* Assets.xcassets */,
+				81E604E5308E69700055D7E7 /* SplashView.swift */,
 			);
 			path = "Cinevo-iOS";
 			sourceTree = "<group>";
@@ -308,7 +314,9 @@
 				C1A0DE01308E0000000000B1 /* HTTPMethod.swift in Sources */,
 				C1A0DE01308E0000000000B2 /* HTTPBody.swift in Sources */,
 				C1A0DE01308E0000000000B3 /* NetworkError.swift in Sources */,
+				81E604E4308E69610055D7E7 /* RootView.swift in Sources */,
 				C1A0DE01308E0000000000B4 /* Endpoint.swift in Sources */,
+				81E604E6308E69700055D7E7 /* SplashView.swift in Sources */,
 				C1A0DE01308E0000000000B5 /* NetworkClient.swift in Sources */,
 				C1A0DE01308E0000000000B6 /* URLSessionNetworkClient.swift in Sources */,
 			);
@@ -465,7 +473,7 @@
 			};
 			name = Release;
 		};
-		81907B2C308CA73400226988 /* Debug configuration for PBXNativeTarget "Cinevo-iOS" */ = {
+		81907B2C308CA73400226988 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -505,7 +513,7 @@
 			};
 			name = Debug;
 		};
-		81907B2D308CA73400226988 /* Release configuration for PBXNativeTarget "Cinevo-iOS" */ = {
+		81907B2D308CA73400226988 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -545,7 +553,7 @@
 			};
 			name = Release;
 		};
-		81907B2F308CA73400226988 /* Debug configuration for PBXNativeTarget "Cinevo-iOSTests" */ = {
+		81907B2F308CA73400226988 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -567,7 +575,7 @@
 			};
 			name = Debug;
 		};
-		81907B30308CA73400226988 /* Release configuration for PBXNativeTarget "Cinevo-iOSTests" */ = {
+		81907B30308CA73400226988 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -589,7 +597,7 @@
 			};
 			name = Release;
 		};
-		81907B32308CA73400226988 /* Debug configuration for PBXNativeTarget "Cinevo-iOSUITests" */ = {
+		81907B32308CA73400226988 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
