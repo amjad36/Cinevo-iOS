@@ -48,7 +48,6 @@ Avoid excessive abstraction, redundant wrappers, and protocols that have no clea
 
 - Use URLSession and async/await.
 - Support generic `Decodable` response types.
-- Support requests with no response body (e.g. 204 No Content).
 - Support GET, POST, PUT, PATCH, and DELETE.
 - Support query parameters, headers, and optional HTTP bodies (`Encodable` JSON or raw `Data`).
 - Use URLComponents for safe URL construction.
@@ -66,17 +65,15 @@ Design a `NetworkError` that covers:
 
 - Invalid URL
 - Request body encoding failure
-- Transport failure (`URLError`)
 - Non-HTTP / invalid response
 - 401 Unauthorized
-- 403 Forbidden
-- 404 Not Found
 - 429 Too Many Requests (expose `Retry-After` when present)
-- Other 4xx client errors
+- Other 4xx client errors (including 403 and 404)
 - 5xx server errors
 - JSON decoding failure
 
 Rules:
+- Transport failures (offline, timeout, …) are not wrapped; they propagate as `URLError`.
 - Cancellation must not be reported as a network failure. Rethrow `CancellationError` so callers can distinguish it from real errors.
 - Preserve the status code and response body on HTTP errors so higher layers can inspect them.
 - Do not silently swallow errors.
@@ -90,7 +87,6 @@ Cover:
 - Header merging (default vs endpoint headers)
 - JSON request body and `Content-Type`
 - Successful decoding
-- Empty (204) responses
 - Every HTTP error mapping listed above
 - Invalid JSON
 - Transport failures

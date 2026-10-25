@@ -39,10 +39,6 @@ final class URLSessionNetworkClient: NetworkClient, @unchecked Sendable {
         }
     }
 
-    func send(_ endpoint: any Endpoint) async throws {
-        _ = try await perform(endpoint)
-    }
-
     private func perform(_ endpoint: any Endpoint) async throws -> Data {
         var request = try endpoint.makeURLRequest(encoder: encoder)
         for (field, value) in defaultHeaders where request.value(forHTTPHeaderField: field) == nil {
@@ -55,8 +51,6 @@ final class URLSessionNetworkClient: NetworkClient, @unchecked Sendable {
             (data, response) = try await session.data(for: request)
         } catch let error as URLError where error.code == .cancelled {
             throw CancellationError()
-        } catch let error as URLError {
-            throw NetworkError.transport(error)
         }
         // The task may have been cancelled after the response arrived.
         try Task.checkCancellation()
@@ -74,10 +68,6 @@ final class URLSessionNetworkClient: NetworkClient, @unchecked Sendable {
             return
         case 401:
             throw NetworkError.unauthorized(data: data)
-        case 403:
-            throw NetworkError.forbidden(data: data)
-        case 404:
-            throw NetworkError.notFound(data: data)
         case 429:
             // Only the delay-seconds form of Retry-After is parsed; an HTTP-date yields nil.
             let retryAfter = response.value(forHTTPHeaderField: "Retry-After").flatMap(TimeInterval.init)

@@ -13,6 +13,8 @@ private struct Item: Decodable, Equatable {
 
 final class URLSessionNetworkClientTests: XCTestCase {
 
+    private static let itemJSON = Data(#"{"id": 1, "title": "Interstellar"}"#.utf8)
+
     private var sut: URLSessionNetworkClient!
 
     override func setUp() {
@@ -37,23 +39,15 @@ final class URLSessionNetworkClientTests: XCTestCase {
         XCTAssertEqual(item, Item(id: 1, title: "Interstellar"))
     }
 
-    func testSendWithoutDecodingAcceptsEmptyBody() async throws {
-        URLProtocolStub.handler = { _ in .http(statusCode: 204) }
-
-        try await sut.send(TestEndpoint(method: .delete))
-
-        XCTAssertEqual(URLProtocolStub.receivedRequests.first?.httpMethod, "DELETE")
-    }
-
     func testSendsRequestBuiltFromEndpoint() async throws {
-        URLProtocolStub.handler = { _ in .http(statusCode: 204) }
+        URLProtocolStub.handler = { _ in .http(statusCode: 200, data: Self.itemJSON) }
         let endpoint = TestEndpoint(
             method: .post,
             queryItems: [URLQueryItem(name: "page", value: "1")],
             body: .data(Data("payload".utf8), contentType: "text/plain")
         )
 
-        try await sut.send(endpoint)
+        _ = try await sut.send(endpoint, as: Item.self)
 
         let request = try XCTUnwrap(URLProtocolStub.receivedRequests.first)
         XCTAssertEqual(request.url?.absoluteString, "https://api.example.com/items?page=1")
@@ -62,13 +56,13 @@ final class URLSessionNetworkClientTests: XCTestCase {
     }
 
     func testDefaultHeadersAreSentAndEndpointHeadersWin() async throws {
-        URLProtocolStub.handler = { _ in .http(statusCode: 204) }
+        URLProtocolStub.handler = { _ in .http(statusCode: 200, data: Self.itemJSON) }
         sut = URLSessionNetworkClient(
             session: URLProtocolStub.makeSession(),
             defaultHeaders: ["Authorization": "Bearer default", "Accept": "application/json"]
         )
 
-        try await sut.send(TestEndpoint(headers: ["Authorization": "Bearer override"]))
+        _ = try await sut.send(TestEndpoint(headers: ["Authorization": "Bearer override"]), as: Item.self)
 
         let request = try XCTUnwrap(URLProtocolStub.receivedRequests.first)
         XCTAssertEqual(request.value(forHTTPHeaderField: "Accept"), "application/json")
@@ -84,17 +78,10 @@ final class URLSessionNetworkClientTests: XCTestCase {
         }
     }
 
-    func testStatus403ThrowsForbidden() async {
-        await assertError(forStatus: 403) { error in
-            guard case .forbidden = error else { return false }
-            return true
-        }
-    }
-
-    func testStatus404ThrowsNotFoundWithBody() async {
+    func testStatus404ThrowsClientErrorWithBody() async {
         await assertError(forStatus: 404, data: Data("missing".utf8)) { error in
-            guard case .notFound(let data) = error else { return false }
-            return data == Data("missing".utf8)
+            guard case .clientError(let statusCode, let data) = error else { return false }
+            return statusCode == 404 && data == Data("missing".utf8)
         }
     }
 
@@ -141,16 +128,16 @@ final class URLSessionNetworkClientTests: XCTestCase {
         }
     }
 
-    func testTransportFailureThrowsTransport() async {
+    func testTransportFailureThrowsURLError() async {
         URLProtocolStub.handler = { _ in .failure(URLError(.notConnectedToInternet)) }
 
         do {
             _ = try await sut.send(TestEndpoint(), as: Item.self)
             XCTFail("Expected an error")
-        } catch NetworkError.transport(let urlError) {
+        } catch let urlError as URLError {
             XCTAssertEqual(urlError.code, .notConnectedToInternet)
         } catch {
-            XCTFail("Expected transport, got \(error)")
+            XCTFail("Expected URLError, got \(error)")
         }
     }
 
