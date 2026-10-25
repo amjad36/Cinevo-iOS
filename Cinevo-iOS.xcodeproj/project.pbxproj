@@ -12,6 +12,15 @@
 		81907C22308CA73200226988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81907C12308CA73200226988 /* Assets.xcassets */; };
 		81907C23308CA73200226988 /* CinevoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81907C13308CA73200226988 /* CinevoTests.swift */; };
 		81907C24308CA73200226988 /* CinevoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81907C14308CA73200226988 /* CinevoUITests.swift */; };
+		C1A0DE01308E0000000000B1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A1 /* HTTPMethod.swift */; };
+		C1A0DE01308E0000000000B2 /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A2 /* HTTPBody.swift */; };
+		C1A0DE01308E0000000000B3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A3 /* NetworkError.swift */; };
+		C1A0DE01308E0000000000B4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A4 /* Endpoint.swift */; };
+		C1A0DE01308E0000000000B5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A5 /* NetworkClient.swift */; };
+		C1A0DE01308E0000000000B6 /* URLSessionNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A6 /* URLSessionNetworkClient.swift */; };
+		C1A0DE01308E0000000000B7 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A7 /* URLProtocolStub.swift */; };
+		C1A0DE01308E0000000000B8 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A8 /* EndpointTests.swift */; };
+		C1A0DE01308E0000000000B9 /* URLSessionNetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A9 /* URLSessionNetworkClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,16 @@
 		81907C12308CA73200226988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81907C13308CA73200226988 /* CinevoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinevoTests.swift; sourceTree = "<group>"; };
 		81907C14308CA73200226988 /* CinevoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinevoUITests.swift; sourceTree = "<group>"; };
+		845C0AF6308DEAB800370FED /* 01-Network-Layer.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-Network-Layer.md"; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A2 /* HTTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A5 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A6 /* URLSessionNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkClient.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A7 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A8 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		C1A0DE01308E0000000000A9 /* URLSessionNetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +89,7 @@
 		81907B03308CA73200226988 = {
 			isa = PBXGroup;
 			children = (
+				845C0AF4308DEA5600370FED /* Claude */,
 				81907C01308CA73200226988 /* Cinevo-iOS */,
 				81907C02308CA73200226988 /* Cinevo-iOSTests */,
 				81907C03308CA73200226988 /* Cinevo-iOSUITests */,
@@ -92,6 +112,7 @@
 			children = (
 				81907C10308CA73200226988 /* CinevoApp.swift */,
 				81907C11308CA73200226988 /* ContentView.swift */,
+				C1A0DE01308E0000000000C1 /* Networking */,
 				81907C12308CA73200226988 /* Assets.xcassets */,
 			);
 			path = "Cinevo-iOS";
@@ -101,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				81907C13308CA73200226988 /* CinevoTests.swift */,
+				C1A0DE01308E0000000000C2 /* Networking */,
 			);
 			path = "Cinevo-iOSTests";
 			sourceTree = "<group>";
@@ -111,6 +133,45 @@
 				81907C14308CA73200226988 /* CinevoUITests.swift */,
 			);
 			path = "Cinevo-iOSUITests";
+			sourceTree = "<group>";
+		};
+		845C0AF4308DEA5600370FED /* Claude */ = {
+			isa = PBXGroup;
+			children = (
+				845C0AF5308DEA6400370FED /* Spec */,
+			);
+			path = Claude;
+			sourceTree = "<group>";
+		};
+		845C0AF5308DEA6400370FED /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				845C0AF6308DEAB800370FED /* 01-Network-Layer.md */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		C1A0DE01308E0000000000C1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C1A0DE01308E0000000000A1 /* HTTPMethod.swift */,
+				C1A0DE01308E0000000000A2 /* HTTPBody.swift */,
+				C1A0DE01308E0000000000A3 /* NetworkError.swift */,
+				C1A0DE01308E0000000000A4 /* Endpoint.swift */,
+				C1A0DE01308E0000000000A5 /* NetworkClient.swift */,
+				C1A0DE01308E0000000000A6 /* URLSessionNetworkClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C1A0DE01308E0000000000C2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C1A0DE01308E0000000000A7 /* URLProtocolStub.swift */,
+				C1A0DE01308E0000000000A8 /* EndpointTests.swift */,
+				C1A0DE01308E0000000000A9 /* URLSessionNetworkClientTests.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +305,12 @@
 			files = (
 				81907C21308CA73200226988 /* ContentView.swift in Sources */,
 				81907C20308CA73200226988 /* CinevoApp.swift in Sources */,
+				C1A0DE01308E0000000000B1 /* HTTPMethod.swift in Sources */,
+				C1A0DE01308E0000000000B2 /* HTTPBody.swift in Sources */,
+				C1A0DE01308E0000000000B3 /* NetworkError.swift in Sources */,
+				C1A0DE01308E0000000000B4 /* Endpoint.swift in Sources */,
+				C1A0DE01308E0000000000B5 /* NetworkClient.swift in Sources */,
+				C1A0DE01308E0000000000B6 /* URLSessionNetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +319,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				81907C23308CA73200226988 /* CinevoTests.swift in Sources */,
+				C1A0DE01308E0000000000B7 /* URLProtocolStub.swift in Sources */,
+				C1A0DE01308E0000000000B8 /* EndpointTests.swift in Sources */,
+				C1A0DE01308E0000000000B9 /* URLSessionNetworkClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
