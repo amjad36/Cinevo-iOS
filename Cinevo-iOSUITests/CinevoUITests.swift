@@ -34,6 +34,23 @@ final class Cinevo_iOSUITests: XCTestCase {
     }
 
     @MainActor
+    func testTabBarSelection() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let home = app.buttons["tab.home"]
+        XCTAssertTrue(home.waitForExistence(timeout: 5))
+        XCTAssertTrue(home.isSelected)
+
+        for identifier in ["tab.trending", "tab.popular", "tab.search", "tab.favorites", "tab.home"] {
+            let tab = app.buttons[identifier]
+            tab.tap()
+            XCTAssertTrue(tab.isSelected, "\(identifier) should be selected after tapping it")
+            XCTAssertEqual(app.buttons.matching(NSPredicate(format: "isSelected == true AND identifier BEGINSWITH 'tab.'")).count, 1)
+        }
+    }
+
+    @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
