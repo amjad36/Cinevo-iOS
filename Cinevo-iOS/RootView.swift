@@ -12,7 +12,7 @@ struct RootView: View {
 
     var body: some View {
         ZStack {
-            ContentView()
+            MainTabView()
 
             if showSplash {
                 SplashView()
