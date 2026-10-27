@@ -24,7 +24,6 @@
 		C1A0DE01308E0000000000B8 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A8 /* EndpointTests.swift */; };
 		C1A0DE01308E0000000000B9 /* URLSessionNetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0DE01308E0000000000A9 /* URLSessionNetworkClientTests.swift */; };
 		D2B0CA7B308F000000000041 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0CA7B308F000000000001 /* AppTab.swift */; };
-		D2B0CA7B308F000000000042 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0CA7B308F000000000002 /* CustomTabBar.swift */; };
 		D2B0CA7B308F000000000043 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0CA7B308F000000000003 /* MainTabView.swift */; };
 		D2B0CA7B308F000000000044 /* PlaceholderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0CA7B308F000000000004 /* PlaceholderScreen.swift */; };
 		D2B0CA7B308F000000000045 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0CA7B308F000000000005 /* HomeView.swift */; };
@@ -74,7 +73,6 @@
 		C1A0DE01308E0000000000A8 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		C1A0DE01308E0000000000A9 /* URLSessionNetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkClientTests.swift; sourceTree = "<group>"; };
 		D2B0CA7B308F000000000001 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
-		D2B0CA7B308F000000000002 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		D2B0CA7B308F000000000003 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		D2B0CA7B308F000000000004 /* PlaceholderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderScreen.swift; sourceTree = "<group>"; };
 		D2B0CA7B308F000000000005 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				D2B0CA7B308F000000000001 /* AppTab.swift */,
-				D2B0CA7B308F000000000002 /* CustomTabBar.swift */,
 				D2B0CA7B308F000000000003 /* MainTabView.swift */,
 			);
 			path = TabBar;
@@ -365,7 +362,6 @@
 				C1A0DE01308E0000000000B5 /* NetworkClient.swift in Sources */,
 				C1A0DE01308E0000000000B6 /* URLSessionNetworkClient.swift in Sources */,
 				D2B0CA7B308F000000000041 /* AppTab.swift in Sources */,
-				D2B0CA7B308F000000000042 /* CustomTabBar.swift in Sources */,
 				D2B0CA7B308F000000000043 /* MainTabView.swift in Sources */,
 				D2B0CA7B308F000000000044 /* PlaceholderScreen.swift in Sources */,
 				D2B0CA7B308F000000000045 /* HomeView.swift in Sources */,

@@ -38,15 +38,17 @@ final class Cinevo_iOSUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        let home = app.buttons["tab.home"]
+        let tabBar = app.tabBars.firstMatch
+        let home = tabBar.buttons["Home"]
         XCTAssertTrue(home.waitForExistence(timeout: 5))
         XCTAssertTrue(home.isSelected)
 
-        for identifier in ["tab.trending", "tab.popular", "tab.search", "tab.favorites", "tab.home"] {
-            let tab = app.buttons[identifier]
+        for title in ["Trending", "Popular", "Search", "Favorites", "Home"] {
+            let tab = tabBar.buttons[title]
             tab.tap()
-            XCTAssertTrue(tab.isSelected, "\(identifier) should be selected after tapping it")
-            XCTAssertEqual(app.buttons.matching(NSPredicate(format: "isSelected == true AND identifier BEGINSWITH 'tab.'")).count, 1)
+            XCTAssertTrue(tab.isSelected, "\(title) should be selected after tapping it")
+            XCTAssertEqual(tabBar.buttons.matching(NSPredicate(format: "isSelected == true")).count, 1)
+            XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 2), "\(title) screen should be shown")
         }
     }
 

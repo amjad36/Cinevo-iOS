@@ -12,7 +12,7 @@ struct PlaceholderScreen: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Image(systemName: tab.selectedSymbolName)
+            Image(systemName: tab.symbolName)
                 .font(.system(size: 44, weight: .regular))
                 .foregroundColor(.secondary)
             Text(message)

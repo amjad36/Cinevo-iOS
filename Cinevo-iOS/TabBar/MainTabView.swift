@@ -5,27 +5,27 @@
 
 import SwiftUI
 
-/// Owns the selected tab and composes one screen per `AppTab` above the `CustomTabBar`.
+/// Owns the selected tab and hosts one screen per `AppTab` in the native tab bar.
 struct MainTabView: View {
+    /// Tint for the selected tab item. Unselected items use the system's standard appearance.
+    private static let selectedTint = Color(red: 0x1E / 255, green: 0x6B / 255, blue: 0xFF / 255)
+
     @State private var selection: AppTab = .home
 
     var body: some View {
-        ZStack {
-            // Every tab stays in the hierarchy so its navigation stack and scroll position
-            // survive switching away; only the selected one is visible and interactive.
+        TabView(selection: $selection) {
             ForEach(AppTab.allCases) { tab in
+                // Each tab owns its own stack, so its navigation state survives switching tabs.
                 NavigationStack {
                     screen(for: tab)
                 }
-                .opacity(tab == selection ? 1 : 0)
-                .allowsHitTesting(tab == selection)
-                .accessibilityHidden(tab != selection)
+                .tabItem {
+                    Label(tab.title, systemImage: tab.symbolName)
+                }
+                .tag(tab)
             }
         }
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            CustomTabBar(selection: $selection)
-        }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .tint(Self.selectedTint)
     }
 
     @ViewBuilder
